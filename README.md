@@ -1,2 +1,2 @@
 # Data Mining
-R scripts used for Data Minding
+R scripts used for Data Mining
