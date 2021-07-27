@@ -18,7 +18,8 @@ plot(wine$Flavanoids,wine$Proline,xlab="Flanavoids",ylab="Proline")
 #Use the mouse to click on the point you want and the Esc key to stop the command
 outlier<-identify(cbind(wine$Flavanoids,wine$Proline))
 wine.new<-wine[-122,-1]
-M <- cor(wine.new);corrplot(M, method = "number",type="upper")
+M <- cor(wine.new)
+corrplot(M, method = "number",type="upper")
 
 round(diag(var(wine.new)),2)
 
