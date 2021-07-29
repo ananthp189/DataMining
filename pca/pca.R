@@ -5,6 +5,8 @@
 library(skimr)
 library(knitr)
 library(corrplot)
+library(TeachingDemos)
+library(ade4)
 
 wine <- read.csv("wine.data.csv")
 str(wine, vec.len = 2)
