@@ -24,4 +24,4 @@ biplot(arrest.pca,xlim=c(-0.3,0.4),xlabs=rep("*",nrow(USArrests)), cex=c(1,0.5),
 biplot(arrest.pca,xlabs=rep("*",nrow(USArrests)), cex=c(1,0.5),arrow.len=0.05,
        choices=c(3,4))
 gb <- ggbiplot(arrest.pca,circle = T)
-
+gb
