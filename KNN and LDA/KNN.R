@@ -70,3 +70,19 @@ contour(x=1:100, y=1:100, z=matrix(prob.grid, nrow=100), levels=0.5,
         col="grey", drawlabels=FALSE, lwd=2) #plot the boundary
 points(train.df, col=classes,pch=20) # add points from train data set
 title(main=paste("k =",k.opt),cex.main=0.9,font.main=4)
+
+
+K <- 25 #Try k from 1 to 25
+corr.class.rate<-numeric(25)
+for(k in 1:25){
+  pred.class<-knn(train.data[,-5], valid.data[,-5], train.data[,5], k=k)
+  corr.class.rate[k]<-sum(pred.class==valid.data$Species)/length(pred.class)
+}
+plot(c(1:25),corr.class.rate,type="b",
+     main="Correct classification rates on the validation data for a range of k",
+     xlab="k",ylab="Correct Classification Rate",cex.main=0.7)
+
+k.opt <- which.max(corr.class.rate)
+pred<-knn(train.data[,-5], test.data[,-5], train.data[,5], k=k.opt)
+sum(pred==test.data$Species)/length(pred)
+
